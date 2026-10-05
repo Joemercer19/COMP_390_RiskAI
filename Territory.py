@@ -4,10 +4,10 @@ class Territory:
         self.continent = continent
         self.owner_id = None
         self.armies = 0
-        self.neighbors = set()
+        self.neighbours = set()
 
-    def add_neighbor(self, Territory_name):
-        self.neighbors.add(Territory_name)
+    def add_neighbour(self, Territory_name):
+        self.neighbours.add(Territory_name)
 
     def is_owned_by(self, player_id):
         return self.owner_id == player_id

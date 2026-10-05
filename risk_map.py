@@ -19,5 +19,19 @@ class RiskMap:
         if territory_b not in self.territories:
             raise ValueError(f"Territory '{territory_b}' does not exist.")
 
-        self.territories[territory_a].add_neighbor(territory_b)
-        self.territories[territory_b].add_neighbor(territory_a)  
+        self.territories[territory_a].add_neighbour(territory_b)
+        self.territories[territory_b].add_neighbour(territory_a) 
+    
+    def get_territory(self, name):
+        if name not in self.territories:
+            raise ValueError (f"Territory'{name}' does not exist")
+
+        return  self.territories[name]
+
+    def get_owned_territories(self, player_id):
+        owned_territories = []
+        for territory in self.territories.values():
+            if territory.owner_id == player_id:
+                owned_territories.append(territory)
+
+        return owned_territories

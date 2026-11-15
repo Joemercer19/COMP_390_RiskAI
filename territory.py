@@ -6,8 +6,8 @@ class Territory:
         self.armies = 0
         self.neighbours = set()
 
-    def add_neighbour(self, Territory_name):
-        self.neighbours.add(Territory_name)
+    def add_neighbour(self, territory_name):
+        self.neighbours.add(territory_name)
 
     def is_owned_by(self, player_id):
         return self.owner_id == player_id
@@ -16,5 +16,5 @@ class Territory:
         return (
             f"{self.name} | "
             f"Owner: {self.owner_id} | "
-            f"Armies: {self.armies}"    
+            f"Armies: {self.armies}"
         )

@@ -31,7 +31,7 @@ class CombatSystem:
         return attacker_losses, defender_losses
 
     def resolve_combat(self, attacker, defender):
-        if attacker.owner_id is None or defender.id is None:
+        if attacker.owner_id is None or defender.owner_id is None:
             raise ValueError("Both territories must have an owner before combat.")
         if defender.armies <= 0:
             raise ValueError("Defending territory must have at least 1 army")

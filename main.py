@@ -2,6 +2,7 @@
 from risk_map import RiskMap
 from player import player
 from combat import CombatSystem
+from game import Game
 
 game_map = RiskMap()
 
@@ -59,3 +60,64 @@ print(result)
 
 print(alaska)
 print(alberta)
+
+game = Game()
+
+current_player = game.get_current_player()
+print(current_player)
+
+game = Game()
+
+print(game.get_current_player())
+
+game.next_player()
+print(game.get_current_player())
+
+game.next_player()
+print(game.get_current_player())
+
+game = Game()
+
+print("Turn:", game.turn_number)
+print("Current player:", game.get_current_player())
+
+game.end_turn()
+
+print("Turn:", game.turn_number)
+print("Current player:", game.get_current_player())
+
+game.end_turn()
+
+print("Turn:", game.turn_number)
+print("Current player:", game.get_current_player())
+
+game = Game()
+game.setup_game()
+for territory in game.risk_map.territories.values():
+    print(territory)
+
+game = Game()
+game.setup_game()
+
+for player in game.players:
+    print(player)
+    print("Reserve armies:", player.reserve_armies)
+
+for player in game.players:
+    print(player)
+    print("Reserve armies:", player.reserve_armies)
+
+    for territory in player.get_territories(game.risk_map):
+        print(territory)
+
+game = Game()
+game.setup_game()
+
+player = game.get_current_player()
+
+print("Reserve before:", player.reserve_armies)
+
+received = game.give_reinforcements(player)
+
+print("Reinforcements received:", received)
+print("Reserve after:", player.reserve_armies)
